@@ -46,3 +46,8 @@ $(document).ready(function () {
         }
     })
 });
+
+modal.classList.add("show");
+modal.classList.remove("show");
+
+
