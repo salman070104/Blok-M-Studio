@@ -202,8 +202,9 @@ section#gallery {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  overflow: hidden;
+  overflow-x: auto;
   padding: 10px 0px 10px 0px;
+  flex-wrap: nowrap
 }
 section#gallery div {
   padding: 10px;
