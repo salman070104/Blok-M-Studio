@@ -36,7 +36,7 @@
       <header id="home">
         <div class="overlay"></div>
         <video autoplay muted loop>
-          <source src="asset/video-indonesia.mp4" type="video/mp4" />
+          <source src="asset/vide+o-indonesia.mp4" type="video/mp4" />
         </video>
         <div class="intro">
           <h3>Blok M Studio</h3>
@@ -99,7 +99,12 @@
           <div><img src="asset/foto6.JPG" /></div>
           <div><img src="asset/foto7.JPG" /></div>
           <div><img src="asset/foto8.JPG" /></div>
+          
         </section>
+          <div id="modal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="modal-img">
+          </div>
         <section class="quote">
           <div class="layar-dalam">
             <p>"Keep going. Everything you need will come to you at the perfect time."
@@ -206,6 +211,30 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+<script>
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  const closeBtn = document.getElementsByClassName("close")[0];
+
+  const images = document.querySelectorAll("#gallery img");
+
+  images.forEach(img => {
+    img.addEventListener("click", function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    });
+  });
+
+  closeBtn.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  modal.onclick = function(e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
     <script src="javascript.js"></script>
   </body>
 </html>
