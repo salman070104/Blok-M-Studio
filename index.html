@@ -40,9 +40,7 @@
         </video>
         <div class="intro">
           <h3>Blok M Studio</h3>
-          <p>
-            Profesional team Fotograpy and vidiograpy
-          </p>
+          <p><span id="typed"></span></p>
           <p>
             <a href="" class="tombol">MORE INFO</a>
           </p>
@@ -81,7 +79,7 @@
               </p>
             </div>
             <div>
-              <img src="asset/kompas.png" />
+              <img src="asset/kamera.png" />
               <h6>sophisticated tools</h6>
               <p>
                 Alat yang kami gunakan adalah dari brand Nikon Z5, Nikon D300, Nikon Z30
@@ -95,6 +93,10 @@
           <div><img src="asset/foto2.JPG" /></div>
           <div><img src="asset/foto3.JPG" /></div>
           <div><img src="asset/foto4.JPG" /></div>
+          <div><img src="asset/foto5.JPG" /></div>
+          <div><img src="asset/foto6.JPG" /></div>
+          <div><img src="asset/foto7.JPG" /></div>
+          <div><img src="asset/foto8.JPG" /></div>
           <div><img src="asset/foto5.JPG" /></div>
           <div><img src="asset/foto6.JPG" /></div>
           <div><img src="asset/foto7.JPG" /></div>
@@ -122,17 +124,17 @@
               <div>
                 <img src="asset/tim (12).JPG" />
                 <h6>Summer Camp</h6>
-                <span>Team Kami melakukan kegiatan Summer Camp di Igir Kandan Pemalang</span>
+                <span></span>
               </div>
               <div>
                 <img src="asset/tim (13).jpg" />
                 <h6>Team Blok M Studio</h6>
-                <span>Team Blok M Studio di tahun 2025</span>
+                <span></span>
               </div>
               <div>
                 <img src="asset/tim (14).jpg" />
                 <h6>Fotografer</h6>
-                <span>Team fotografer Blok M Studio Percetakan</span>
+                <span></span>
               </div>
             </div>
           </div>
@@ -234,7 +236,56 @@
       modal.style.display = "none";
     }
   }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+  var typed = new Typed("#typed", {
+    strings: ["Profesional Fotografi, Vidiografi, Live Streaming and Printing"], // Bisa tambahkan kalimat lain juga
+    typeSpeed: 60,
+    backSpeed: 30,
+    backDelay: 1000, // jeda sebelum menghapus
+    startDelay: 500, // jeda sebelum mulai ketik
+    loop: true,      // efek ketik ulang terus menerus
+    showCursor: true,
+    cursorChar: "|",
+  });
+  </script>
+  <script>
+  const gallery = document.querySelector('section#gallery');
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  gallery.addEventListener('mousedown', (e) => {
+    isDown = true;
+    gallery.classList.add('active'); // opsional, bisa untuk efek cursor
+    startX = e.pageX - gallery.offsetLeft;
+    scrollLeft = gallery.scrollLeft;
+  });
+
+  gallery.addEventListener('mouseleave', () => {
+    isDown = false;
+    gallery.classList.remove('active');
+  });
+
+  gallery.addEventListener('mouseup', () => {
+    isDown = false;
+    gallery.classList.remove('active');
+  });
+
+  gallery.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - gallery.offsetLeft;
+    const walk = (x - startX) * 2; // sesuaikan angka untuk kecepatan
+    gallery.scrollLeft = scrollLeft - walk;
+  });
 </script>
+
+
+
+
     <script src="javascript.js"></script>
   </body>
 </html>
